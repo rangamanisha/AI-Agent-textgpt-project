@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"  # Expose Flask backend
+    volumes:
+      - .:/app       # Optional: Mount code for local development
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+    stdin_open: true
+    tty: true
